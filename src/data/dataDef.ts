@@ -39,7 +39,7 @@ interface HeroActionItem {
  */
 export interface About {
   profileImageSrc?: string;
-  description: string;
+  description: JSX.Element;
   aboutItems: AboutItem[];
 }
 
@@ -59,38 +59,67 @@ export interface Stat {
 }
 
 /**
- * Skills section
+ * Update section (bullet points)
  */
-
-export interface Skill {
-  name: string;
-  level: number;
-  max?: number;
-}
-
-export interface SkillGroup {
-  name: string;
-  skills: Skill[];
+export interface UpdatesItem {
+  date: string;                // 2023-10-05
+  message: string;             // plain text, no HTML
+  links?: Array<{
+    text: string;              // anchor text
+    url: string;               // https://…
+  }>;
 }
 
 /**
- * Portfolio section
+ * Education section
+ */
+export interface TimelineItem {
+  date?: string;
+  location?: string;
+  title: string;
+  content?: JSX.Element;
+  links?: Array<{
+    text: string;              // anchor text
+    url: string;               // https://…
+  }>;
+}
+
+/**
+ * Education section
+ */
+export interface SubTimelineItem {
+  date?: string;
+  location?: string;
+  title: string;
+  content?: JSX.Element;
+  links?: Array<{
+    text: string;              // anchor text
+    url: string;               // https://…
+  }>;
+}
+
+/**
+ * Research section
+ */
+export interface Publist {
+  title: string;
+  imageSrc: string;
+  authors: string;
+  paperlink?: string;
+  codelink?: string;
+  demolink?: string;
+  conference?: string;
+  field: string; // single category (or comma-separated)
+}
+
+/**
+ * Portfolio section (很多拼图一样的)
  */
 export interface PortfolioItem {
   title: string;
-  description: string;
-  url: string;
+  description?: string;
+  url?: string;
   image: string | StaticImageData;
-}
-
-/**
- * Resume section
- */
-export interface TimelineItem {
-  date: string;
-  location: string;
-  title: string;
-  content: JSX.Element;
 }
 
 /**
@@ -103,8 +132,17 @@ export interface TestimonialSection {
 
 export interface Testimonial {
   image?: string;
-  name: string;
+  name?: string;
   text: string;
+}
+
+/**
+ * Collaborators page
+ */
+export interface Collaborators {
+  name: string;
+  homepagelink: string;
+  message: string;
 }
 
 /**
