@@ -1,6 +1,7 @@
 // components/Icon/EmailIcon.tsx
-import { FC, memo } from 'react';
-import Icon, { IconProps } from './Icon';
+import {FC, memo} from 'react';
+
+import Icon, {IconProps} from './Icon';
 
 const EmailIcon: FC<IconProps> = memo(props => (
   <Icon {...props}>

@@ -1,4 +1,5 @@
 import {FC, memo} from 'react';
+
 import {SubTimelineItem as SubTimelineItemData} from '../../../data/dataDef';
 
 const SubTimelineItem: FC<{item: SubTimelineItemData}> = memo(({item}) => {

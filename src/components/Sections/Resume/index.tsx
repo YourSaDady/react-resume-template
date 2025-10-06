@@ -1,11 +1,10 @@
 import {FC, memo} from 'react';
 
-import {updates, education, exchange_intern, service, SectionId} from '../../../data/data';
+import {education, exchange_intern, SectionId,service, updates} from '../../../data/data';
 import Section from '../../Layout/Section';
 import ResumeSection from './ResumeSection';
 // import {SkillGroup} from './Skills';
 import TimelineItem from './TimelineItem';
-import SubTimelineItem from './TimelineItem';
 import UpdatesItem from './UpdatesItem';
 
 const Resume: FC = memo(() => {
@@ -26,12 +25,12 @@ const Resume: FC = memo(() => {
         </ResumeSection>
         <ResumeSection title="Global">
           {exchange_intern.map((item, index) => (
-            <SubTimelineItem item={item} key={`${item.title}-${index}`} />
+            <TimelineItem item={item} key={`${item.title}-${index}`} />
           ))}
         </ResumeSection>
         <ResumeSection title="Service">
           {service.map((item, index) => (
-            <SubTimelineItem item={item} key={`${item.title}-${index}`} />
+            <TimelineItem item={item} key={`${item.title}-${index}`} />
           ))}
         </ResumeSection>
         {/* <ResumeSection title="Research Fields">

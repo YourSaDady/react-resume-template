@@ -16,39 +16,36 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import TwitterIcon from '../components/Icon/TwitterIcon';
 // import EmailIcon from '../components/Icon/EmailIcon';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/band_1.jpg';
-import porfolioImage2 from '../images/portfolio/marathon_2025hk.jpg';
+import porfolioImage8 from '../images/miho_5.webp';
 import porfolioImage3 from '../images/portfolio/badminton_1.jpg';
+import porfolioImage1 from '../images/portfolio/band_1.jpg';
+import porfolioImage6 from '../images/portfolio/band_2.jpg';
 import porfolioImage4 from '../images/portfolio/climb_1.jpg';
 import porfolioImage5 from '../images/portfolio/climb_2.jpg';
-import porfolioImage6 from '../images/portfolio/band_2.jpg';
+import porfolioImage2 from '../images/portfolio/marathon_2025hk.jpg';
 import porfolioImage7 from '../images/portfolio/tennis_1.jpg';
-import porfolioImage8 from '../images/miho_5.webp';
 // import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 // import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 // import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
-import testimonialImage from '../images/testimonial.webp';
-
-import visual_debra from '../images/pub/debra.png';
 import visual_crychic from '../images/pub/crychic.png'
-import visual_othello from '../images/pub/othello.png'
 import visual_csp from '../images/pub/csp.png'
-
+import visual_debra from '../images/pub/debra.png';
+import visual_othello from '../images/pub/othello.png'
+import testimonialImage from '../images/testimonial.webp';
 import {
   About,
+  Collaborators,
   ContactSection,
   ContactType,
   Hero,
   HomepageMeta,
   PortfolioItem,
+  Publist,
   Social,
   TestimonialSection,
   TimelineItem,
-  UpdatesItem,
-  Publist,
-  Collaborators
-} from './dataDef';
+  UpdatesItem} from './dataDef';
 
 /**
  * Page meta data
@@ -86,11 +83,11 @@ export const heroData: Hero = {
     <>
       <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         I&apos;m a final-year CS undergrad at <strong className="text-stone-100">the University of Hong Kong (HKU)</strong>, working as{' '}
-        <a href="https://ikekonglp.github.io/" target="_blank" rel="noopener noreferrer" className="text-stone-100 underline hover:text-stone-50">Prof. Lingpeng Kong</a>
+        <a className="text-stone-100 underline hover:text-stone-50" href="https://ikekonglp.github.io/" rel="noopener noreferrer" target="_blank">Prof. Lingpeng Kong</a>
         . Currently, I also work for{' '}
-        <a href="https://yilundu.github.io/" target="_blank" rel="noopener noreferrer" className="text-stone-100 underline hover:text-stone-50">Prof. Yilun Du</a>
+        <a className="text-stone-100 underline hover:text-stone-50" href="https://yilundu.github.io/" rel="noopener noreferrer" target="_blank">Prof. Yilun Du</a>
         . I was also deeply inspired by these{' '}
-        <a href="/collaborators" target="_blank" rel="noopener noreferrer" className="text-stone-100 underline hover:text-stone-50">collaborators</a>.
+        <a className="text-stone-100 underline hover:text-stone-50" href="/collaborators" rel="noopener noreferrer" target="_blank">collaborators</a>.
       </div>
       <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         My current research goal is to popularize <strong className="text-stone-100">Energy-Based Models</strong> by advancing their theoretical 
@@ -121,15 +118,15 @@ export const aboutData: About = {
     <>
       <div>
         Previously, my research focused on understanding model uncertainty. I was fortunate to be supervised by{' '}
-        <a href="https://www.cs.toronto.edu/~six/" target="_blank" rel="noopener noreferrer" className="underline text-stone-100 hover:text-stone-50">
+        <a className="underline text-stone-100 hover:text-stone-50" href="https://www.cs.toronto.edu/~six/" rel="noopener noreferrer" target="_blank">
           Prof. Xujie Si
         </a>{' '}
         to conduct model-based verification of transformer robustness during summer 2024 at the University of Toronto, supported by{' '}
-        <a href="https://www.mitacs.ca/our-programs/globalink-research-internship-students/" target="_blank" rel="noopener noreferrer" className="underline text-stone-100 hover:text-stone-50">
+        <a className="underline text-stone-100 hover:text-stone-50" href="https://www.mitacs.ca/our-programs/globalink-research-internship-students/" rel="noopener noreferrer" target="_blank">
           Globalink, Mitacs
         </a>{' '}. 
         Afterwards, I spent a rewarding year working with{' '}
-        <a href="https://ikekonglp.github.io/" target="_blank" rel="noopener noreferrer" className="underline text-stone-100 hover:text-stone-50">
+        <a className="underline text-stone-100 hover:text-stone-50" href="https://ikekonglp.github.io/" rel="noopener noreferrer" target="_blank">
           Prof. Lingpeng Kong
         </a>{' '}
         on interpretable, uncertainty-driven decoding of LRMs for long-CoT reasoning and agentic planning tasks.
@@ -138,7 +135,7 @@ export const aboutData: About = {
       <div>
         The unpredictable parametric knowledge stored in such models motivated me to seek generative measures that are theoretically grounded and not confined to text, which led me to energy-based models (EBMs). 
         Presently, I am exploring EBM-based measures for generalizable test-time sampling and compositional spatial planning under the supervision of{' '}
-        <a href="https://yilundu.github.io/" target="_blank" rel="noopener noreferrer" className="underline text-stone-100 hover:text-stone-50">
+        <a className="underline text-stone-100 hover:text-stone-50" href="https://yilundu.github.io/" rel="noopener noreferrer" target="_blank">
           Prof. Yilun Du
         </a>.
       </div>
@@ -222,8 +219,8 @@ export const publications: Publist[] = [
  * Collaborators
  */
 export const collaborators: Collaborators[] = [
-  { name: 'Chang Ma', homepagelink: 'https://chang-github-00.github.io/-changma/', message: 'Mentored me on IntrospectiveReasoning'},
-  { name: 'Shiqi Chen', homepagelink: 'https://shiqichen17.github.io/', message: 'Mentored me on IntrospectiveReasoning'},
+  {name: 'Chang Ma', homepagelink: 'https://chang-github-00.github.io/-changma/', message: 'Mentored me on IntrospectiveReasoning'},
+  {name: 'Shiqi Chen', homepagelink: 'https://shiqichen17.github.io/', message: 'Mentored me on IntrospectiveReasoning'},
   // ↓↓↓  add more here
 ];
 

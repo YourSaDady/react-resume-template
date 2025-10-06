@@ -1,10 +1,12 @@
 // components/PublistSection.tsx
-import { FC, useMemo, useState } from 'react';
+import {FC, memo, useMemo, useState} from 'react';
+
 import Publist from './Publist';
 
 const fields = ['All', 'EBMs', 'LMs', 'Interpret', 'Reasonin\'&Plannin\'', 'Test-Time']; // extend as needed
 
-const PublistSection: FC<{ items: Publist[] }> = ({ items }) => {
+// const PublistSection: FC<{ items: Publist[] }> = ({items}) => {
+const PublistSection: FC<{ items: Publist[] }> = memo(({items}) => {
     const [active, setActive] = useState('All');
   
     const visible = useMemo(() => {
@@ -22,10 +24,10 @@ const PublistSection: FC<{ items: Publist[] }> = ({ items }) => {
           <p className="text-sm text-neutral-700 mt-2">
             For a complete list, please refer to{' '}
             <a
-              href="https://scholar.google.com/citations?user=YOUR_ID"
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
+              href="https://scholar.google.com/citations?user=YOUR_ID"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               Google Scholar
             </a>
@@ -38,13 +40,13 @@ const PublistSection: FC<{ items: Publist[] }> = ({ items }) => {
           <div className="inline-flex flex-wrap justify-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow backdrop-blur">
             {fields.map((f) => (
               <button
-                key={f}
-                onClick={() => setActive(f)}
                 className={`px-4 py-1.5 text-sm rounded-full transition ${
                   active === f
                     ? 'bg-orange-500 text-white shadow'
                     : 'text-neutral-700 hover:bg-neutral-200/70'
                 }`}
+                key={f}
+                onClick={() => setActive(f)}
               >
                 {f}
               </button>
@@ -55,11 +57,11 @@ const PublistSection: FC<{ items: Publist[] }> = ({ items }) => {
         {/* publication list – no individual panels, only divider lines */}
         <div className="max-w-4xl mx-auto px-4 pb-8">
           {visible.map((it, idx) => (
-            <Publist key={`${it.title}-${idx}`} item={it} />
+            <Publist item={it} key={`${it.title}-${idx}`} />
           ))}
         </div>
       </div>
     );
-  };
+  });
   
-  export default PublistSection;
+  export default memo(PublistSection);

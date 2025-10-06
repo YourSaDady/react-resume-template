@@ -31,23 +31,25 @@
 
 // export default CollaboratorsPage;
 // pages/collaborators.tsx  (或 app/collaborators/page.tsx)
-import { FC } from 'react';
-import { collaborators } from '../data/data';
-import Section from '../components/Layout/Section';
-import { SectionId } from '../data/data';
+import {FC, memo} from 'react';
 
-const CollaboratorsPage: FC = () => (
-  <Section sectionId={SectionId.Collaborators} className="bg-neutral-200">
+import Section from '../components/Layout/Section';
+import {collaborators,SectionId} from '../data/data';
+
+
+// const CollaboratorsPage: FC = () => (
+const CollaboratorsPage: FC = memo(() => (
+  <Section className="bg-neutral-200" sectionId={SectionId.Collaborators}>
     <div className="mx-auto max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-bold mb-6">Collaborators</h1>
       <ul className="list-disc list-inside space-y-2">
         {collaborators.map((c) => (
           <li key={c.name}>
             <a
-              href={c.homepagelink}
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
+              href={c.homepagelink}
+              rel="noopener noreferrer"
+              target="_blank"
             >
               {c.name}
             </a>
@@ -57,6 +59,6 @@ const CollaboratorsPage: FC = () => (
       </ul>
     </div>
   </Section>
-);
+));
 
-export default CollaboratorsPage;
+export default memo(CollaboratorsPage);

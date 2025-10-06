@@ -1,6 +1,7 @@
 // components/Icon/BilibiliIcon.tsx
-import { FC, memo } from 'react';
-import Icon, { IconProps } from './Icon';
+import {FC, memo} from 'react';
+
+import Icon, {IconProps} from './Icon';
 
 const BilibiliIcon: FC<IconProps> = memo(props => (
   <Icon {...props}>
