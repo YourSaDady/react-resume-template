@@ -82,7 +82,7 @@ export const heroData: Hero = {
   description: (
     <>
       <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I&apos;m a final-year CS undergrad at <strong className="text-stone-100">the University of Hong Kong (HKU)</strong>, working as{' '}
+        I&apos;m a final-year CS undergrad at <strong className="text-stone-100">the University of Hong Kong (HKU)</strong>, supervised by {' '}
         <a className="text-stone-100 underline hover:text-stone-50" href="https://ikekonglp.github.io/" rel="noopener noreferrer" target="_blank">Prof. Lingpeng Kong</a>
         . Currently, I also work for{' '}
         <a className="text-stone-100 underline hover:text-stone-50" href="https://yilundu.github.io/" rel="noopener noreferrer" target="_blank">Prof. Yilun Du</a>
