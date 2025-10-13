@@ -101,7 +101,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: 'resume_20251007.pdf',
+      href: 'resume_20251013.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
