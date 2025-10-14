@@ -3,65 +3,64 @@ import {FC, memo, useMemo, useState} from 'react';
 
 import Publist from './Publist';
 
-const fields = ['All', 'EBMs', 'LMs', 'Interpret', 'Reasonin\'&Plannin\'', 'Test-Time']; // extend as needed
+const fields = ['All', 'EBMs', 'LMs', 'Interpret', "Reasonin'&Plannin'", 'Test-Time']; // extend as needed
 
 // const PublistSection: FC<{ items: Publist[] }> = ({items}) => {
-const PublistSection: FC<{ items: Publist[] }> = memo(({items}) => {
-    const [active, setActive] = useState('All');
-  
-    const visible = useMemo(() => {
-      if (active === 'All') return items;
-      return items.filter((it) =>
-        it.field.split(',').map((f) => f.trim()).includes(active)
-      );
-    }, [active, items]);
-  
-    return (
-      <div className="w-full bg-neutral-200">
-        {/* title + scholar link */}
-        <div className="max-w-4xl mx-auto px-4 pt-8 pb-4 text-center">
-          <h2 className="text-2xl font-bold text-neutral-900">Recent Works</h2>
-          <p className="text-sm text-neutral-700 mt-2">
-            For a complete list, please refer to{' '}
-            <a
-              className="text-blue-600 hover:underline"
-              href="https://scholar.google.com/citations?user=YOUR_ID"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Google Scholar
-            </a>
-            .
-          </p>
-        </div>
-  
-        {/* centred translucent menu bar */}
-        <div className="flex justify-center pb-6">
-          <div className="inline-flex flex-wrap justify-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow backdrop-blur">
-            {fields.map((f) => (
-              <button
-                className={`px-4 py-1.5 text-sm rounded-full transition ${
-                  active === f
-                    ? 'bg-orange-500 text-white shadow'
-                    : 'text-neutral-700 hover:bg-neutral-200/70'
-                }`}
-                key={f}
-                onClick={() => setActive(f)}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-        </div>
-  
-        {/* publication list – no individual panels, only divider lines */}
-        <div className="max-w-4xl mx-auto px-4 pb-8">
-          {visible.map((it, idx) => (
-            <Publist item={it} key={`${it.title}-${idx}`} />
+const PublistSection: FC<{items: Publist[]}> = memo(({items}) => {
+  const [active, setActive] = useState('All');
+
+  const visible = useMemo(() => {
+    if (active === 'All') return items;
+    return items.filter(it =>
+      it.field
+        .split(',')
+        .map(f => f.trim())
+        .includes(active),
+    );
+  }, [active, items]);
+
+  return (
+    <div className="w-full bg-neutral-200">
+      {/* title + scholar link */}
+      <div className="max-w-4xl mx-auto px-4 pt-8 pb-4 text-center">
+        <h2 className="text-2xl font-bold text-neutral-900">Recent Works</h2>
+        <p className="text-sm text-neutral-700 mt-2">
+          For a complete list, please refer to{' '}
+          <a
+            className="text-blue-600 hover:underline"
+            href="https://scholar.google.com/citations?user=YOUR_ID"
+            rel="noopener noreferrer"
+            target="_blank">
+            Google Scholar
+          </a>
+          .
+        </p>
+      </div>
+
+      {/* centred translucent menu bar */}
+      <div className="flex justify-center pb-6">
+        <div className="inline-flex flex-wrap justify-center gap-2 rounded-full bg-white/60 px-4 py-2 shadow backdrop-blur">
+          {fields.map(f => (
+            <button
+              className={`px-4 py-1.5 text-sm rounded-full transition ${
+                active === f ? 'bg-orange-500 text-white shadow' : 'text-neutral-700 hover:bg-neutral-200/70'
+              }`}
+              key={f}
+              onClick={() => setActive(f)}>
+              {f}
+            </button>
           ))}
         </div>
       </div>
-    );
-  });
-  
-  export default memo(PublistSection);
+
+      {/* publication list – no individual panels, only divider lines */}
+      <div className="max-w-4xl mx-auto px-4 pb-8">
+        {visible.map((it, idx) => (
+          <Publist item={it} key={`${it.title}-${idx}`} />
+        ))}
+      </div>
+    </div>
+  );
+});
+
+export default memo(PublistSection);

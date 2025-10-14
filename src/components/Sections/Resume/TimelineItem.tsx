@@ -4,7 +4,7 @@ import {TimelineItem as TimelineItemData} from '../../../data/dataDef';
 
 const TimelineItem: FC<{item: TimelineItemData}> = memo(({item}) => {
   const {title, date, location, content} = item;
-  const showDot = location?.trim() && date?.trim();   // ← both present
+  const showDot = location?.trim() && date?.trim(); // ← both present
 
   return (
     <div className="flex flex-col pb-3 text-center last:pb-0 md:text-left">
@@ -13,13 +13,9 @@ const TimelineItem: FC<{item: TimelineItemData}> = memo(({item}) => {
 
         {(location || date) && (
           <div className="flex items-center justify-center gap-x-2 md:justify-start">
-            {location && (
-              <span className="flex-1 text-sm font-medium italic sm:flex-none">{location}</span>
-            )}
-            {showDot && <span>•</span>}          {/* ← only when both exist */}
-            {date && (
-              <span className="flex-1 text-sm sm:flex-none">{date}</span>
-            )}
+            {location && <span className="flex-1 text-sm font-medium italic sm:flex-none">{location}</span>}
+            {showDot && <span>•</span>} {/* ← only when both exist */}
+            {date && <span className="flex-1 text-sm sm:flex-none">{date}</span>}
           </div>
         )}
       </div>

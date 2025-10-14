@@ -108,10 +108,7 @@ const Portfolio: FC = memo(() => {
   const closeZoom = useCallback(() => setZoomed(null), []);
 
   // factory: returns the click handler for a *specific* item
-  const handleZoom = useCallback(
-    (item: PortfolioItem) => () => setZoomed(item),
-    []
-  );
+  const handleZoom = useCallback((item: PortfolioItem) => () => setZoomed(item), []);
 
   return (
     <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>
@@ -122,9 +119,8 @@ const Portfolio: FC = memo(() => {
             <div className="pb-6" key={`${item.title}-${index}`}>
               <div
                 className={classNames(
-                  'relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl'
-                )}
-              >
+                  'relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl',
+                )}>
                 <Image
                   alt={item.title}
                   className="h-full w-full cursor-pointer"
@@ -141,14 +137,8 @@ const Portfolio: FC = memo(() => {
 
       {/* Zoom overlay */}
       {zoomed && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
-          onClick={closeZoom}
-        >
-          <div
-            className="relative max-w-4xl max-h-[90vh] p-4"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={closeZoom}>
+          <div className="relative max-w-4xl max-h-[90vh] p-4" onClick={e => e.stopPropagation()}>
             <Image alt={zoomed.title} className="object-contain" fill src={zoomed.image} />
           </div>
         </div>
@@ -161,21 +151,18 @@ Portfolio.displayName = 'Portfolio';
 export default Portfolio;
 
 /* ---------- ItemOverlay ---------- */
-const ItemOverlay: FC<{ item: PortfolioItem }> = memo(
-  ({item: {url, title, description}}) => (
-    <a
-      className="absolute inset-0 h-full w-full bg-gray-900 transition-all duration-300 opacity-0 hover:opacity-80"
-      href={url}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <div className="relative h-full w-full p-4">
-        <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
-          <h2 className="text-center font-bold text-white">{title}</h2>
-          <p className="text-xs text-white sm:text-sm">{description}</p>
-        </div>
-        <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 text-white sm:bottom-2 sm:right-2" />
+const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, description}}) => (
+  <a
+    className="absolute inset-0 h-full w-full bg-gray-900 transition-all duration-300 opacity-0 hover:opacity-80"
+    href={url}
+    rel="noopener noreferrer"
+    target="_blank">
+    <div className="relative h-full w-full p-4">
+      <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
+        <h2 className="text-center font-bold text-white">{title}</h2>
+        <p className="text-xs text-white sm:text-sm">{description}</p>
       </div>
-    </a>
-  )
-);
+      <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 text-white sm:bottom-2 sm:right-2" />
+    </div>
+  </a>
+));

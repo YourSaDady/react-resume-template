@@ -62,11 +62,11 @@ export interface Stat {
  * Update section (bullet points)
  */
 export interface UpdatesItem {
-  date: string;                // 2023-10-05
-  message: string;             // plain text, no HTML
+  date: string; // 2023-10-05
+  message: string; // plain text, no HTML
   links?: Array<{
-    text: string;              // anchor text
-    url: string;               // https://…
+    text: string; // anchor text
+    url: string; // https://…
   }>;
 }
 
@@ -79,8 +79,8 @@ export interface TimelineItem {
   title: string;
   content?: JSX.Element;
   links?: Array<{
-    text: string;              // anchor text
-    url: string;               // https://…
+    text: string; // anchor text
+    url: string; // https://…
   }>;
 }
 
@@ -93,8 +93,8 @@ export interface SubTimelineItem {
   title: string;
   content?: JSX.Element;
   links?: Array<{
-    text: string;              // anchor text
-    url: string;               // https://…
+    text: string; // anchor text
+    url: string; // https://…
   }>;
 }
 

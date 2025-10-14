@@ -34,8 +34,7 @@
 import {FC, memo} from 'react';
 
 import Section from '../components/Layout/Section';
-import {collaborators,SectionId} from '../data/data';
-
+import {collaborators, SectionId} from '../data/data';
 
 // const CollaboratorsPage: FC = () => (
 const CollaboratorsPage: FC = memo(() => (
@@ -43,14 +42,13 @@ const CollaboratorsPage: FC = memo(() => (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <h1 className="text-2xl font-bold mb-6">Collaborators</h1>
       <ul className="list-disc list-inside space-y-2">
-        {collaborators.map((c) => (
+        {collaborators.map(c => (
           <li key={c.name}>
             <a
               className="text-blue-600 hover:underline"
               href={c.homepagelink}
               rel="noopener noreferrer"
-              target="_blank"
-            >
+              target="_blank">
               {c.name}
             </a>
             : {c.message}

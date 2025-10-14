@@ -12,12 +12,7 @@ const Publist: FC<{item: Publist}> = memo(({item}) => {
       <div className="flex items-start gap-4 max-w-4xl w-full">
         {/* left image - 64:36 frame, fully filled (stretched + cropped) */}
         <div className="relative w-64 h-36 rounded border border-neutral-300 overflow-hidden shrink-0 mt-5">
-          <Image
-            alt={title}
-            className="object-cover object-center"
-            fill
-            src={imageSrc}
-          />
+          <Image alt={title} className="object-cover object-center" fill src={imageSrc} />
         </div>
 
         {/* right text block */}
@@ -32,16 +27,14 @@ const Publist: FC<{item: Publist}> = memo(({item}) => {
               className="px-3 py-1 text-sm rounded bg-blue-600 text-white hover:bg-blue-700"
               href={paperlink}
               rel="noopener noreferrer"
-              target="_blank"
-            >
+              target="_blank">
               Paper
             </a>
             <a
               className="px-3 py-1 text-sm rounded bg-gray-700 text-white hover:bg-gray-600"
               href={codelink}
               rel="noopener noreferrer"
-              target="_blank"
-            >
+              target="_blank">
               Code
             </a>
             {demolink && (
@@ -49,8 +42,7 @@ const Publist: FC<{item: Publist}> = memo(({item}) => {
                 className="px-3 py-1 text-sm rounded bg-green-600 text-white hover:bg-green-700"
                 href={demolink}
                 rel="noopener noreferrer"
-                target="_blank"
-              >
+                target="_blank">
                 Demo
               </a>
             )}
