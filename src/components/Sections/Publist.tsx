@@ -43,16 +43,16 @@ const Publist: FC<{item: Publist}> = memo(({item}) => {
                 href={slidelink}
                 rel="noopener noreferrer"
                 target="_blank">
-                Demo
+                Slides
               </a>
             )}
             {weblink && (
               <a
-                className="px-3 py-1 text-sm rounded bg-green-600 text-white hover:bg-pink-600"
+                className="px-3 py-1 text-sm rounded bg-pink-500 text-white hover:bg-pink-600"
                 href={weblink}
                 rel="noopener noreferrer"
                 target="_blank">
-                Demo
+                Website
               </a>
             )}
           </div>
