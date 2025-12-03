@@ -4,7 +4,7 @@ import {FC, memo} from 'react';
 import {Publist} from '../../data/dataDef';
 
 const Publist: FC<{item: Publist}> = memo(({item}) => {
-  const {title, authors, imageSrc, paperlink, codelink, demolink, conference} = item;
+  const {title, authors, imageSrc, paperlink, codelink, slidelink, weblink, conference} = item;
 
   return (
     <div className="flex justify-center pb-6 border-b-2 last:border-0 last:pb-0">
@@ -37,10 +37,19 @@ const Publist: FC<{item: Publist}> = memo(({item}) => {
               target="_blank">
               Code
             </a>
-            {demolink && (
+            {slidelink && (
               <a
                 className="px-3 py-1 text-sm rounded bg-green-600 text-white hover:bg-green-700"
-                href={demolink}
+                href={slidelink}
+                rel="noopener noreferrer"
+                target="_blank">
+                Demo
+              </a>
+            )}
+            {weblink && (
+              <a
+                className="px-3 py-1 text-sm rounded bg-green-600 text-white hover:bg-pink-600"
+                href={weblink}
                 rel="noopener noreferrer"
                 target="_blank">
                 Demo
