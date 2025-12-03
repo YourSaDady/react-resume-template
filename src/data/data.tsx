@@ -248,7 +248,7 @@ export const publications: Publist[] = [
     field: 'LMs, Interpret',
     imageSrc: visual_othello,
     codelink: 'https://github.com/YourSaDady/UofT-verification.git',
-    demolink: '/papers_tmp/othello.pdf',
+    slidelink: '/papers_tmp/othello.pdf',
   },
   {
     title: 'Compositional Spatial Planning: An Energy-Based Approach',
@@ -257,7 +257,8 @@ export const publications: Publist[] = [
     field: "EBMs, Reasonin'&Plannin'",
     imageSrc: visual_csp,
     paperlink: '/papers_tmp/csp.pdf',
-    demolink: 'https://wp2025.cs.hku.hk/fyp25086/',
+    slidelink: '/papers_tmp/csp_slides.pdf',
+    weblink: 'https://wp2025.cs.hku.hk/fyp25086/',
   },
 ];
 

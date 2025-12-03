@@ -107,7 +107,8 @@ export interface Publist {
   authors: string;
   paperlink?: string;
   codelink?: string;
-  demolink?: string;
+  slidelink?: string;
+  weblink?: string;
   conference?: string;
   field: string; // single category (or comma-separated)
 }
